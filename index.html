@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Hub | عالم الموسيقى</title>
+    <style>
+        /* تعريف الألوان والمتغيرات */
+        :root {
+            --primary-color: #38bdf8;
+            --secondary-color: #fbbf24; /* لون ذهبي للموسيقى */
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* تنسيق التنقل */
+        nav {
+            background: rgba(30, 41, 59, 0.95);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-lesson {
+            background: var(--primary-color);
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-lesson:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* الجزء الرئيسي (Hero Section) */
+        .hero {
+            padding: 80px 20px;
+            text-align: center;
+            background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to left, #38bdf8, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-dim);
+            font-size: 1.2rem;
+        }
+
+        /* الحاويات والبطاقات */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: 0.4s;
+            border: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 20px;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border-color: var(--primary-color);
+        }
+
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .card h3 {
+            margin: 20px 0 10px;
+            color: var(--secondary-color);
+        }
+
+        /* تنسيق أيقونة الأباوت الصغيرة */
+        .about-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--primary-color);
+            vertical-align: middle;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#" class="logo">🎧 Music Hub</a>
+    <div class="nav-links">
+        <a href="index.html">الرئيسية</a>
+        <a href="music.html">الموسيقى</a>
+        <a href="contact.html">اتصل بنا</a>
+        <a href="lessons.html" class="btn-lesson">ابدأ الدروس الآن</a>
+        <a href="about.html">
+            <img src="https://tse3.mm.bing.net/th/id/OIP.Xd_6NaDPuiIQYiyJuKIgRAHaFM?rs=1&pid=ImgDetMain&o=7&rm=3" alt="About" class="about-icon">
+        </a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>مرحباً بك في Music Hub</h1>
+    <p>تعلم الموسيقى، استكشف الألحان، واصنع فنك الخاص 🎶</p>
+</section>
+
+<div class="container">
+    <!-- البطاقة الأولى -->
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+             onmouseover="this.src='https://images.unsplash.com/photo-1507838153414-b4b713384a76?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'"
+             onmouseout="this.src='https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'"
+             alt="Music">
+        <h3>تعلم الآلات</h3>
+        <p>دروس احترافية في البيانو، الغيتار والكمان.</p>
+    </div>
+
+    <!-- البطاقة الثانية -->
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Studio">
+        <h3>الموسيقى حياة</h3>
+        <p>استمتع بأحدث التراكات والمقطوعات العالمية.</p>
+    </div>
+</div>
+
+<footer>
+    <p>جميع الحقوق محفوظة &copy; 2024 Music Hub</p>
+</footer>
+
+</body>
+</html>

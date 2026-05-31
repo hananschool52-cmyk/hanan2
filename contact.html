@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | اتصل بنا</title>
+    <style>
+        :root {
+            --primary-color: #38bdf8;
+            --secondary-color: #fbbf24;
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --input-bg: #334155;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* القائمة العلوية */
+        nav {
+            background: rgba(30, 41, 59, 0.95);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* حاوية النموذج */
+        .container {
+            max-width: 600px;
+            margin: 60px auto;
+            padding: 40px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+
+        /* تنسيق حقول الإدخال */
+        form input, form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            background: var(--input-bg);
+            border: 2px solid transparent;
+            border-radius: 10px;
+            color: white;
+            font-size: 1rem;
+            box-sizing: border-box; /* لضمان عدم خروج الحواف */
+            transition: 0.3s;
+        }
+
+        form input:focus, form textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background: #475569;
+        }
+
+        form textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* الأزرار */
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        button {
+            background: var(--primary-color);
+            border: none;
+            padding: 12px 30px;
+            color: #0f172a;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 1rem;
+            flex: 1;
+        }
+
+        button:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(56, 189, 248, 0.3);
+        }
+
+        button.alt {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        button.alt:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">🎧 Music Hub</div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="lessons.html">Lessons</a>
+        <a href="music.html">Music</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</nav>
+
+<div class="container">
+    <h1>تواصل معنا</h1>
+    <p style="color: #94a3b8; margin-bottom: 20px;">نحن هنا للإجابة على استفساراتك الموسيقية!</p>
+
+    <form id="contactForm">
+        <input type="text" placeholder="الاسم الكامل" required>
+        <input type="email" id="emailInput" placeholder="البريد الإلكتروني (example@mail.com)" required>
+        <textarea placeholder="اكتب رسالتك أو ملاحظاتك هنا..."></textarea>
+        
+        <div class="btn-group">
+            <button type="button" onclick="validateForm()">إرسال الرسالة</button>
+            <button type="button" class="alt" onclick="alert('سيتم فتح تطبيق الاتصال قريباً')">اتصل بنا هاتفياً</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    function validateForm() {
+        const email = document.getElementById('emailInput').value;
+        if (email.includes('@')) {
+            alert("شكراً لك! تم استلام رسالتك بنجاح 🎶");
+        } else {
+            alert("عذراً، يجب أن يحتوي البريد الإلكتروني على علامة @");
+        }
+    }
+</script>
+
+</body>
+</html>

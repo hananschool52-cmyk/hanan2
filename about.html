@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | عن فادي</title>
+    <style>
+        :root {
+            --primary-color: #38bdf8;
+            --secondary-color: #fbbf24;
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+            --accent-red: #ef4444;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* القائمة العلوية */
+        nav {
+            background: rgba(30, 41, 59, 0.95);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* حاوية المحتوى */
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .profile-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-bottom: 40px;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid var(--primary-color);
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .bio {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        /* تنسيق الجدول الاحترافي */
+        .table-container {
+            overflow-x: auto; /* للتوافق مع الموبايل */
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: var(--card-bg);
+            color: var(--text-main);
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: #0f172a;
+            padding: 15px;
+            text-align: center;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #334155;
+            text-align: center;
+        }
+
+        tr:hover {
+            background-color: #2d3748;
+        }
+
+        .status-pass {
+            color: #4ade80;
+            font-weight: bold;
+        }
+
+        .grade {
+            background: #334155;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">🎧 Music Hub</div>
+    <div class="nav-links">
+        <a href="index.html">الرئيسية</a>
+        <a href="about.html">عني</a>
+        <a href="lessons.html">الدروس</a>
+        <a href="music.html">الموسيقى</a>
+        <a href="contact.html">اتصل بنا</a>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="profile-card">
+        <img src="https://ui-avatars.com/api/?name=Fadi+Music&background=38bdf8&color=fff&size=128" alt="Fadi" class="profile-img">
+        <h1>عن فادي</h1>
+        <p class="bio">صانع محتوى موسيقي، شغوف بتعليم العزف ومشاركة أحدث التقنيات في عالم الـ Web و تكنولوجيا المعلومات.</p>
+    </div>
+
+    <h2 style="color: var(--secondary-color); text-align: right; margin-right: 20px;">السجل الأكاديمي / الدورات</h2>
+    
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>الوحدة (Unit)</th>
+                    <th>النوع</th>
+                    <th>الوقت (ساعة)</th>
+                    <th>الحالة</th>
+                    <th>العلامة</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>تكنولوجيا المعلومات</td>
+                    <td>إلزامي</td>
+                    <td>60</td>
+                    <td class="status-pass">ناجح</td>
+                    <td><span class="grade">D</span></td>
+                </tr>
+                <tr>
+                    <td>مقدمة مواقع</td>
+                    <td>اختياري</td>
+                    <td>60</td>
+                    <td class="status-pass">ناجح</td>
+                    <td><span class="grade">A</span></td>
+                </tr>
+                <tr>
+                    <td>هندسة الصوت</td>
+                    <td>تخصص</td>
+                    <td>45</td>
+                    <td class="status-pass">ناجح</td>
+                    <td><span class="grade">B+</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

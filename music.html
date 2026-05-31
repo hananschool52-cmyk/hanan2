@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Music | معرض الموسيقى</title>
+    <style>
+        :root {
+            --primary-color: #38bdf8;
+            --secondary-color: #fbbf24;
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* القائمة العلوية */
+        nav {
+            background: rgba(30, 41, 59, 0.95);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            background: linear-gradient(to left, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* تصميم مشغل الموسيقى */
+        .music-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.4s;
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            cursor: pointer; /* ليشعر المستخدم أنه زر قابل للنقر */
+        }
+
+        .music-card:hover {
+            border-color: var(--primary-color);
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+        }
+
+        .album-art {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(45deg, #1e293b, #38bdf8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            animation: rotate 10s linear infinite;
+            animation-play-state: paused; /* تبدأ متوقفة */
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .track-info h3 {
+            margin: 10px 0 5px;
+            color: var(--text-main);
+        }
+
+        .track-info p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        /* تأثير موجات الموسيقى */
+        .waves {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            height: 30px;
+            margin-bottom: 15px;
+            opacity: 0.3; /* خفيفة عندما تكون متوقفة */
+        }
+
+        .wave {
+            width: 4px;
+            height: 10px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* الأنميشن يعمل فقط عند التشغيل */
+        .playing .wave {
+            animation: bounce 1s ease-in-out infinite;
+        }
+
+        .playing .album-art {
+            animation-play-state: running;
+        }
+
+        .playing .waves {
+            opacity: 1;
+        }
+
+        @keyframes bounce {
+            0%, 100% { height: 10px; }
+            50% { height: 30px; }
+        }
+
+        .instruction {
+            color: var(--secondary-color);
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">🎧 Music Hub</div>
+    <div class="nav-links">
+        <a href="index.html">الرئيسية</a>
+        <a href="about.html">عني</a>
+        <a href="lessons.html">الدروس</a>
+        <a href="music.html">الموسيقى</a>
+        <a href="contact.html">اتصل بنا</a>
+    </div>
+</nav>
+
+<div class="container">
+    <h1>معرض مقطوعاتي 🎵</h1>
+
+    <!-- المقطوعة الأولى (رابط من الإنترنت) -->
+    <div class="music-card" onclick="togglePlay(this, 'audio1')">
+        <div class="album-art">🎶</div>
+        <div class="waves">
+            <div class="wave"></div>
+            <div class="wave" style="animation-delay: 0.1s"></div>
+            <div class="wave" style="animation-delay: 0.2s"></div>
+            <div class="wave" style="animation-delay: 0.3s"></div>
+        </div>
+        <div class="track-info">
+            <h3>Synthwave Tech</h3>
+            <p>كلمات وألحان: فادي | تصنيف: تكنولوجي</p>
+        </div>
+        <audio id="audio1">
+            <!-- رابط مباشر من الإنترنت لتجربة الكود -->
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        </audio>
+        <span class="instruction">انقر للتشغيل / الإيقاف</span>
+    </div>
+
+    <!-- المقطوعة الثانية (رابط من الإنترنت) -->
+    <div class="music-card" onclick="togglePlay(this, 'audio2')">
+        <div class="album-art" style="background: linear-gradient(45deg, #1e293b, #fbbf24);">🎹</div>
+        <div class="track-info">
+            <h3>Piano Melody</h3>
+            <p>عزف بيانو هادئ</p>
+        </div>
+        <audio id="audio2">
+            <!-- رابط مباشر آخر من الإنترنت -->
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+        </audio>
+        <span class="instruction">انقر للتشغيل / الإيقاف</span>
+    </div>
+</div>
+<!-- قسم البيانو الهادئ -->
+<div class="music-card" onclick="togglePlay(this, 'pianoAudio')" style="border-color: #e2e8f0; background: #1e293b;">
+    <!-- أيقونة بيانو مع خلفية هادئة -->
+    <div class="album-art" style="background: linear-gradient(45deg, #0f172a, #94a3b8);">🎹</div>
+    
+    <div class="waves">
+        <div class="wave" style="background: #94a3b8;"></div>
+        <div class="wave" style="background: #94a3b8; animation-delay: 0.1s"></div>
+        <div class="wave" style="background: #94a3b8; animation-delay: 0.2s"></div>
+        <div class="wave" style="background: #94a3b8; animation-delay: 0.3s"></div>
+    </div>
+
+    <div class="track-info">
+        <h3 style="color: #f8fafc;">Pure Piano Meditation</h3>
+        <p>موسيقى بيانو كلاسيكية هادئة جداً للدراسة أو الاسترخاء</p>
+    </div>
+
+    <audio id="pianoAudio">
+        <!-- رابط لمقطوعة بيانو هادئة جداً (Song-3 من الموقع) -->
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" type="audio/mpeg">
+    </audio>
+    
+    <span class="instruction" style="color: #94a3b8;">اضغط لتجربة الهدوء</span>
+</div>
+
+<script>
+    function togglePlay(card, audioId) {
+        var audio = document.getElementById(audioId);
+        
+        // إيقاف جميع الأصوات الأخرى قبل تشغيل الجديد (اختياري)
+        document.querySelectorAll('audio').forEach(el => {
+            if (el.id !== audioId) {
+                el.pause();
+                el.parentElement.classList.remove('playing');
+            }
+        });
+
+        if (audio.paused) {
+            audio.play();
+            card.classList.add('playing');
+        } else {
+            audio.pause();
+            card.classList.remove('playing');
+        }
+    }
+</script>
+
+</body>
+</html>
